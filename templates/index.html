@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplikasi Kasir CRUD</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Sistem Kasir dengan CRUD Produk</h1>
+        </header>
+
+        <main>
+            <section id="manajemen-produk-section">
+                <h2>Manajemen Produk</h2>
+                <form id="form-produk">
+                    <input type="hidden" id="produk-id" name="produk_id">
+                    <div>
+                        <label for="produk-nama">Nama Produk:</label>
+                        <input type="text" id="produk-nama" name="nama" required>
+                    </div>
+                    <div>
+                        <label for="produk-harga">Harga (Rp):</label>
+                        <input type="number" id="produk-harga" name="harga" min="0" required>
+                    </div>
+                    <div>
+                        <label for="produk-stok">Stok:</label>
+                        <input type="number" id="produk-stok" name="stok" min="0" required>
+                    </div>
+                    <button type="submit" id="tombol-simpan-produk">Simpan Produk</button>
+                    <button type="button" id="tombol-reset-form" style="display:none;">Batal Edit</button>
+                </form>
+            </section>
+
+            <section id="daftar-produk-section">
+                <h2>Daftar Produk</h2>
+                <div id="produk-list" class="produk-grid">
+                </div>
+            </section>
+
+            <section id="keranjang-section">
+                <h2>Keranjang Belanja</h2>
+                <table id="tabel-keranjang">
+                    <thead>
+                        <tr>
+                            <th>Nama Produk</th>
+                            <th>Harga</th>
+                            <th>Jumlah</th>
+                            <th>Subtotal</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody id="isi-keranjang">
+                    </tbody>
+                </table>
+                <div class="total-keranjang">
+                    <h3>Total Belanja: <span id="total-belanja">Rp 0</span></h3>
+                </div>
+                <div class="pembayaran-section">
+                    <label for="uang-bayar">Uang Bayar (Rp):</label>
+                    <input type="number" id="uang-bayar" min="0">
+                    <button id="tombol-bayar">Bayar</button>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 Aplikasi Kasir Anda</p>
+        </footer>
+    </div>
+
+    <div id="modal-struk" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2>Struk Pembayaran</h2>
+            <div id="detail-struk"></div>
+            <button id="tombol-cetak-struk">Cetak Struk (Simulasi)</button>
+            <button id="tombol-transaksi-baru">Transaksi Baru</button>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+
+</html>

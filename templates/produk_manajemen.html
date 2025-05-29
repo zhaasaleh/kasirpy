@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manajemen Produk</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Manajemen Data Produk</h1>
+            <nav>
+                <a href="{{ url_for('index') }}">Kembali ke Kasir</a>
+            </nav>
+        </header>
+
+        <main class="manajemen-produk-main">
+            <section id="form-produk-section">
+                <h2>Form Produk</h2>
+                <form id="form-produk-admin">
+                    <input type="hidden" id="produk-id-admin" name="produk_id">
+                    <div>
+                        <label for="produk-nama-admin">Nama Produk:</label>
+                        <input type="text" id="produk-nama-admin" name="nama" required>
+                    </div>
+                    <div>
+                        <label for="produk-harga-admin">Harga (Rp):</label>
+                        <input type="number" id="produk-harga-admin" name="harga" min="0" required>
+                    </div>
+                    <div>
+                        <label for="produk-stok-admin">Stok:</label>
+                        <input type="number" id="produk-stok-admin" name="stok" min="0" required>
+                    </div>
+                    <button type="submit" id="tombol-simpan-produk-admin">Simpan Produk</button>
+                    <button type="button" id="tombol-reset-form-admin" style="display:none;">Batal Edit</button>
+                </form>
+            </section>
+
+            <section id="tabel-produk-section">
+                <h2>Daftar Produk Tersedia</h2>
+                <table id="tabel-daftar-produk">
+                    <thead>
+                        <tr>
+                            <th>ID Produk</th>
+                            <th>Nama Produk</th>
+                            <th>Harga</th>
+                            <th>Stok</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody id="isi-tabel-produk">
+                    </tbody>
+                </table>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 Aplikasi Kasir Anda - Halaman Admin</p>
+        </footer>
+    </div>
+    <script src="{{ url_for('static', filename='produk_script.js') }}"></script>
+</body>
+
+</html>

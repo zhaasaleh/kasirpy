@@ -1,0 +1,353 @@
+:root {
+    --primary-color: #007bff;
+    --secondary-color: #6c757d;
+    --danger-color: #dc3545;
+    --warning-color: #ffc107;
+    --success-color: #28a745;
+    --dark-color: #35424a;
+    --light-bg: #f4f4f4;
+    --white: #ffffff;
+    --text-color: #333;
+    --shadow-light: 0 0 15px rgba(0, 0, 0, 0.1);
+    --shadow-medium: 0 5px 15px rgba(0, 0, 0, 0.2);
+    --radius: 8px;
+    --transition: all 0.3s ease;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--light-bg);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 20px auto;
+    background-color: var(--white);
+    padding: 20px;
+    box-shadow: var(--shadow-light);
+    border-radius: var(--radius);
+}
+
+header {
+    background-color: var(--dark-color);
+    color: var(--white);
+    padding: 1rem 0;
+    text-align: center;
+    border-radius: var(--radius) var(--radius) 0 0;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2rem;
+}
+
+main {
+    display: grid;
+    grid-template-areas:
+        "manajemen"
+        "daftar keranjang";
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+section {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 6px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
+}
+
+section h2 {
+    color: var(--dark-color);
+    border-bottom: 2px solid var(--dark-color);
+    padding-bottom: 10px;
+    margin-top: 0;
+}
+
+.produk-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 15px;
+}
+
+.produk-item {
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: var(--radius);
+    text-align: center;
+    background-color: var(--white);
+    transition: var(--transition);
+}
+
+.produk-item:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-light);
+}
+
+.produk-item h3 {
+    font-size: 1.1em;
+    margin: 5px 0;
+}
+
+.produk-item p {
+    font-size: 0.9em;
+    color: #555;
+    margin: 5px 0;
+}
+
+.produk-item .harga {
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.produk-item button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    font-size: 0.9em;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.produk-item button:hover {
+    background-color: #0056b3;
+}
+
+.produk-item .produk-actions {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.produk-item .produk-actions button {
+    width: 100%;
+    padding: 6px 10px;
+    font-size: 0.85em;
+}
+
+.edit-produk {
+    background-color: var(--warning-color);
+    color: #212529;
+}
+
+.edit-produk:hover {
+    background-color: #e0a800;
+}
+
+.hapus-produk {
+    background-color: var(--danger-color);
+}
+
+.hapus-produk:hover {
+    background-color: #c82333;
+}
+
+#tabel-keranjang {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 15px;
+}
+
+#tabel-keranjang th,
+#tabel-keranjang td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+#tabel-keranjang th {
+    background-color: #e9ecef;
+}
+
+#tabel-keranjang td button {
+    border: none;
+    padding: 5px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    color: white;
+}
+
+#tabel-keranjang td button.kurang-item {
+    background-color: var(--warning-color);
+    margin-right: 5px;
+}
+
+#tabel-keranjang td button.hapus-item {
+    background-color: var(--danger-color);
+}
+
+.total-keranjang {
+    text-align: right;
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.pembayaran-section label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.pembayaran-section input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.pembayaran-section button {
+    background-color: var(--success-color);
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    font-size: 1em;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: var(--transition);
+    width: 100%;
+}
+
+.pembayaran-section button:hover {
+    background-color: #218838;
+}
+
+footer {
+    text-align: center;
+    margin-top: 30px;
+    padding: 15px;
+    background-color: var(--dark-color);
+    color: var(--white);
+    border-radius: 0 0 var(--radius) var(--radius);
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 10;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.modal-content {
+    background-color: var(--white);
+    margin: 10% auto;
+    padding: 20px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-medium);
+    max-width: 500px;
+    animation: fadeIn 0.3s;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.close-button {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close-button:hover {
+    color: black;
+    cursor: pointer;
+}
+
+#detail-struk {
+    font-family: 'Courier New', Courier, monospace;
+    border: 1px dashed #ccc;
+    padding: 10px;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+#modal-struk button {
+    padding: 10px 15px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    color: white;
+}
+
+#tombol-cetak-struk {
+    background-color: var(--primary-color);
+}
+
+#tombol-transaksi-baru {
+    background-color: var(--secondary-color);
+}
+
+/* Form Manajemen Produk */
+#form-produk div {
+    margin-bottom: 10px;
+}
+
+#form-produk label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+#form-produk input[type="text"],
+#form-produk input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+#form-produk button {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+#form-produk button:hover {
+    background-color: #0056b3;
+}
+
+#tombol-reset-form {
+    background-color: var(--secondary-color);
+}
+
+#tombol-reset-form:hover {
+    background-color: #5a6268;
+}
+
+@media (max-width: 600px) {
+    main {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "manajemen"
+            "daftar"
+            "keranjang";
+    }
+}
